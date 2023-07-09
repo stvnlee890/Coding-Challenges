@@ -32,6 +32,6 @@ def get_nth(node, index):
                 return node
 
 # Clever answers by other user using recursion
-def get_nth(node, index):
-    if node and index >= 0: 
-        return node if index < 1 else get_nth(node.next, index - 1)
+# def get_nth(node, index):
+#     if node and index >= 0: 
+#         return node if index < 1 else get_nth(node.next, index - 1)
