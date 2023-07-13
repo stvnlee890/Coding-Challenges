@@ -48,7 +48,6 @@ class Solution:
                 return [map[result], i]
             map[num] = i
         return []
-
 solution = Solution()
 print(solution.twoSum([2, 11, 15, 7], 9))
 print(solution.twoSum([3, 2, 4], 6))
