@@ -24,16 +24,30 @@ Create global variable that stores the result.
 Check the dictionary for that result variable, if != None then we know we've found the other pair.
 '''
 
-class Solution(object):
-    def twoSum(self, nums, target):
-        map = {}
-        for i in range(len(nums)):
-            result = target - nums[i]
-            if map.get(result) != None:
-                return [map.get(result), i]
-            else:
-                map[nums[i]] = i
+# class Solution(object):
+#     def twoSum(self, nums, target):
+#         map = {}
+#         for i in range(len(nums)):
+#             result = target - nums[i]
+#             if map.get(result) != None:
+#                 return [map.get(result), i]
+#             else:
+#                 map[nums[i]] = i
 
+
+
+'''
+Another way to write this code 
+'''
+class Solution:
+   def twoSum(self, nums, target):
+        map = {}
+        for i, num in enumerate(nums):
+            result = target - num
+            if result in map:
+                return [map[result], i]
+            map[num] = i
+        return []
 
 solution = Solution()
 print(solution.twoSum([2, 11, 15, 7], 9))
