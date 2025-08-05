@@ -36,7 +36,6 @@
 #          [x,  x,  x,  x,  x, x]
 #          [x,  x,  x,  x,  x, x],
 
-# Recursion
 #
 # # 3x3 array
 #
@@ -99,8 +98,6 @@ def snail(snail_map):
     
     while(len(sorted_arr) < map_length**2):
         if (y != map_length -1 and len(sorted_arr) != map_length - 1):
-            print("here")
-            print(sorted_arr)
             sorted_arr.pop()
         while (j < y):
             sorted_arr.append(snail_map[i][j])
