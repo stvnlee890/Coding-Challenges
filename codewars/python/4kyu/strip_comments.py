@@ -18,36 +18,46 @@ grapes
 bananas
 '''
 
-# essentially remove everything after comment marker up to new_line
 def strip_comments(strng, markers):
     new_line = '\n'
-    
-    # two pointer method
-    # scout pointer scouts for markers.
-    # place start pointer to scout
-    #   scout iterates until new_line expected
-    #   scout always checks for end of string
-    
     start = 0
     scout = 0
-    
+
     stripped = ""
 
     while(scout < len(strng)):
         if strng[scout] in markers:
-            while(start < scout):
-                stripped += strng[start]
-                start += 1
+            # check remove whitespace in stripped
+            print(start, strng[scout])
+            while(strng[scout] is not new_line and scout < len(strng) - 1):
+                scout += 1
 
+        if not scout - start == 1:
+            start = scout
+        else:
+            stripped += strng[start]
             
+        if scout == len(strng) - 1 and scout - start == 1:
+            start = scout
+            stripped += strng[start]
+
+        start = scout
         scout += 1
 
     print(stripped)
     pass
 
-# 'apples, pears\ngrapes\nbananas'
-strip_comments('apples, pears # and bananas\ngrapes\nbananas !apples', ['#', '!'])
-#  'a\nc\nd'
-strip_comments('a #b\nc\nd $e f g', ['#', '$'])
-# ' a\nc\nd'
-strip_comments(' a #b\nc\nd $e f g', ['#', '$'])
+# # 'apples, pears\ngrapes\nbananas'
+# strip_comments('apples, pears # and bananas\ngrapes\nbananas !apples', ['#', '!'])
+# #  'a\nc\nd'
+# strip_comments('a #b\nc\nd $e f g', ['#', '$'])
+# # ' a\nc\nd'
+# strip_comments(' a #b\nc\nd $e f g', ['#', '$'])
+
+# strip_comments("  pears ' @ , watermelons oranges\n# # oranges oranges oranges @\npears ? watermelons apples @\npears pears oranges pears", [])
+
+# strip_comments("- ,\npears\n' oranges - apples avocados\n-", ['=', "'", '!', '^', '?', '@'])
+
+# strip_comments(", bananas strawberries cherries\navocados strawberries ? strawberries watermelons oranges\n' # ' cherries strawberries avocados\n, @ watermelons ,", ['=', '.', ',', '-', '@', '?'])
+
+strip_comments("  # -\nwatermelons ? cherries\n^ lemons .\n.\n, ' strawberries # apples pears", [',', '!', '?', "'"])

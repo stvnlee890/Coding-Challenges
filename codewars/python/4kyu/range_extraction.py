@@ -20,7 +20,6 @@ def solution(args):
             counter += 1
             scout += 1
         
-        print(start, scout)
         if (counter >= 2):
             extract += f"{args[start]}-{args[scout]},"
             start = scout + 1
